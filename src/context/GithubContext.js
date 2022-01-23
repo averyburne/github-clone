@@ -8,8 +8,14 @@ export const GithubState = ({ children }) => {
     const [repos, setRepos] = useState(null)
     const [followers, setFollowers] = useState(null)
     const [overview, setOverview] = useState(null)
-    const [search, setSearch] = useState(null)
-    const [error, setError] = useState(null)
+    const [search, setSearch] = useState('')
+    const [error, setError] = useState('')
+
+    const getSearch = e => {
+        e.preventDefault()
+        getData()
+        setSearch('')
+    }
 
     const getData = () => {
         fetch(`https://api.github.com/users/${search}`)
@@ -26,6 +32,7 @@ export const GithubState = ({ children }) => {
                 getRepos()
                 getOverview()
                 getFollowers()
+                setError('')
             }
         })
     }
@@ -49,7 +56,16 @@ export const GithubState = ({ children }) => {
     }
 
     return (
-        <GithubContext.Provider value={{  }}>
+        <GithubContext.Provider 
+        value={{ 
+            getSearch, 
+            user, 
+            repos, 
+            followers, 
+            overview, 
+            search, 
+            setSearch, 
+            error }}>
             {children}
         </GithubContext.Provider>
     )
