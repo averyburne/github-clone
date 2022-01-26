@@ -11,6 +11,9 @@ export const GithubState = ({ children }) => {
     const [search, setSearch] = useState('')
     const [error, setError] = useState('')
 
+    console.log(GithubContext)
+    console.log(GithubState)
+
     const getSearch = e => {
         e.preventDefault()
         getData()
@@ -56,7 +59,7 @@ export const GithubState = ({ children }) => {
     }
 
     return (
-        <GithubContext.Provider 
+        <GithubContext.Provider
         value={{ 
             getSearch, 
             user, 
