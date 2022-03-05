@@ -1,16 +1,16 @@
 import React from 'react';
-import { GithubContext, GithubState } from './context/GithubContext';
+import { GithubState } from './context/GithubContext';
+import { BrowserRouter as Browser } from 'react-router-dom';
 import Hero from './components/Hero'
 import './App.css';
-console.log(GithubContext)
-console.log(GithubState)
 
 function App() {
   return (
-    <GithubContext>
-      <Hero />
-    </GithubContext>
-
+    <GithubState>
+      <Browser>
+        <Hero />
+      </Browser>
+    </GithubState>
   );
 }
 

@@ -1,4 +1,4 @@
-import { getMouseEventOptions } from '@testing-library/user-event/dist/utils'
+// import { getMouseEventOptions } from '@testing-library/user-event/dist/utils'
 import React, { createContext, useState, useEffect } from 'react'
 
 export const GithubContext = createContext()
@@ -10,9 +10,6 @@ export const GithubState = ({ children }) => {
     const [overview, setOverview] = useState(null)
     const [search, setSearch] = useState('')
     const [error, setError] = useState('')
-
-    console.log(GithubContext)
-    console.log(GithubState)
 
     const getSearch = e => {
         e.preventDefault()
@@ -42,20 +39,20 @@ export const GithubState = ({ children }) => {
 
     const getRepos = () => {
         fetch(`https://.api.github.com/users/${search}/repos`)
-            .then(res => res.json())
-            .then(data => setRepos(data))
+            .then((res) => res.json())
+            .then((data) => setRepos(data))
     }
 
     const getOverview = () => {
         fetch(`https://.api.github.com/users/${search}/repos?per_page=8&sort=asc`)
-            .then(res => res.json())
-            .then(data => setOverview(data))
+            .then((res) => res.json())
+            .then((data) => setOverview(data))
     }
 
     const getFollowers = () => {
         fetch(`https://.api.github.com/users/${search}/followers`)
-            .then(res => res.json())
-            .then(data => setFollowers(data))
+            .then((res) => res.json())
+            .then((data) => setFollowers(data))
     }
 
     return (
