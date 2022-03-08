@@ -1,10 +1,10 @@
 // import { getMouseEventOptions } from '@testing-library/user-event/dist/utils'
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useEffect, useReducer } from 'react'
 
 export const GithubContext = createContext()
 
 export const GithubState = ({ children }) => {
-    const [user, setUser] = useState('averyburne')
+    const [user, setUser] = useState('')
     const [repos, setRepos] = useState(null)
     const [followers, setFollowers] = useState(null)
     const [overview, setOverview] = useState(null)
@@ -22,12 +22,14 @@ export const GithubState = ({ children }) => {
         .then(res => res.json())
         .then(data => {
             if (data.message) {
-                setUser(null)
+                console.log('hi')
+                setUser('')
                 setRepos(null)
                 setFollowers(null)
                 setOverview(null)
                 setError('User not found...')
             } else {
+                console.log('hi 2')
                 setUser(data)
                 getRepos()
                 getOverview()

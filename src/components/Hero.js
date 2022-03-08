@@ -6,19 +6,20 @@ import User from './User'
 import ReposNav from './ReposNav'
 
 const Hero = () => {
-    const user = useContext(GithubContext)
-    console.log(user)
-    
+    const { user } = useContext(GithubContext)
+
     return (
         <section className='hero'>
             <Nav />
             <Container>
-                {user ? 
-                        <User /> : <> <p>No User</p>
+                {user ? (
+                    <>
+                        <User />
                         <div className='wrapper'>
                             <ReposNav/>
-                        </div>
-                        </>}
+                        </div>                        
+                    </>
+                ) : <p>No User</p>}
             </Container>
         </section>
     )

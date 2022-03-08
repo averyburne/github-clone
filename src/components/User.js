@@ -4,6 +4,10 @@ import { GithubContext } from '../context/GithubContext'
 const User = () => {
     const { user } = useContext(GithubContext)
 
+    console.log(user)
+
+    console.log(user ? 'true' : 'false')
+
     return (
         <div className="user">
             <div className='userContainer'>
