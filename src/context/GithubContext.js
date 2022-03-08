@@ -22,14 +22,12 @@ export const GithubState = ({ children }) => {
         .then(res => res.json())
         .then(data => {
             if (data.message) {
-                console.log('hi')
                 setUser('')
                 setRepos(null)
                 setFollowers(null)
                 setOverview(null)
                 setError('User not found...')
             } else {
-                console.log('hi 2')
                 setUser(data)
                 getRepos()
                 getOverview()
