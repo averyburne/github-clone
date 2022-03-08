@@ -4,7 +4,7 @@ import React, { createContext, useState, useEffect } from 'react'
 export const GithubContext = createContext()
 
 export const GithubState = ({ children }) => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState('averyburne')
     const [repos, setRepos] = useState(null)
     const [followers, setFollowers] = useState(null)
     const [overview, setOverview] = useState(null)
