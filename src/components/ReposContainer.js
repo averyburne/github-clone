@@ -1,6 +1,8 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Overview from './Overview'
+import Repos from './Repos'
+import Followers from './Followers'
 
 const ReposContainer = () => {
 
@@ -8,8 +10,8 @@ const ReposContainer = () => {
             <div className='reposContainer'>
                 <Routes>
                     <Route path='/overview' component={Overview}/>
-                    <Route path='/repos'/>
-                    <Route path='/followers'/>
+                    <Route path='/repos' component={Repos}>
+                    <Route path='/followers' component={Followers}/>
                 </Routes>
             </div>
         )
