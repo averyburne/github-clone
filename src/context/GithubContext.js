@@ -1,5 +1,5 @@
 // import { getMouseEventOptions } from '@testing-library/user-event/dist/utils'
-import React, { createContext, useState, useEffect, useReducer } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 
 export const GithubContext = createContext()
 
@@ -8,7 +8,7 @@ export const GithubState = ({ children }) => {
     const [repos, setRepos] = useState(null)
     const [followers, setFollowers] = useState(null)
     const [overview, setOverview] = useState(null)
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('averyburne')
     const [error, setError] = useState('')
 
     const getSearch = e => {
@@ -54,6 +54,11 @@ export const GithubState = ({ children }) => {
             .then((res) => res.json())
             .then((data) => setFollowers(data))
     }
+
+    useEffect(() => {
+        getData()
+        setSearch('')
+    },[])
 
     return (
         <GithubContext.Provider

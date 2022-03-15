@@ -10,7 +10,7 @@ const ReposContainer = () => {
             <div className='reposContainer'>
                 <Routes>
                     <Route path='/overview' component={Overview}/>
-                    <Route path='/repos' component={Repos}>
+                    <Route path='/repos' component={Repos}/>
                     <Route path='/followers' component={Followers}/>
                 </Routes>
             </div>

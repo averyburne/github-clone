@@ -1,8 +1,14 @@
-import React, { useContext } from 'react'
-import { context, GithubContext } from '../context/GithubContext'
+import React, { useContext, useEffect } from 'react'
+import { GithubContext } from '../context/GithubContext'
+import { useNavigate } from 'react-router-dom'
 
 const Form = () => {
     const  { search, setSearch, getSearch} = useContext(GithubContext)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        navigate('/overview')
+    }, [])
 
      return (
          <form onSubmit={getSearch}>
